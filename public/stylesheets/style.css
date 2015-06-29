@@ -7,13 +7,15 @@ body {
 }
 #page-wrap {
   margin: 2% auto;
+  width: 98%;
   color: white;
 }
 #page-wrap > .main {
   border: 1px solid #999;
   padding: 1%;
-  margin-bottom: 1px;
+  margin-bottom: 1%;
   color: black;
+  border-radius: 5px;
 }
 section > div {
   padding: 20px;
@@ -24,7 +26,82 @@ section,
 footer {
   background: #eee;
   text-align: center;
+  box-shadow: 0 0 5px #333;
 }
-nav span {
-  margin: 0px 10px 0px 0px;
+nav {
+  padding: 0px !important;
+  background: #091E33;
+}
+nav > ul {
+  list-style-type: none;
+}
+nav > ul > li {
+  display: inline-block;
+  border-left: 2px dotted #ddf;
+  width: 32.9%;
+}
+nav > ul > li:first-child {
+  border: none;
+}
+nav > ul > li > a {
+  display: block;
+  padding: 10px;
+}
+nav > ul > li > a:hover {
+  background-color: #1A2F44;
+  border-radius: 5px;
+}
+a {
+  color: #37B;
+  text-decoration:none;  
+}
+a:hover {
+  color: #BBD43D;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 0 1px 1px #555;
+  margin: 10px 0;
+}
+.bien {
+  color: green;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.mal {
+  color: red;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+input[type=submit],
+.boton {
+  cursor: pointer;
+  margin: 10px auto;
+  border: 2px solid #aaf;
+  background-color: #091E33;
+  text-align: center;
+  width: 160px;
+  color: #cdf;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px 1px #000;
+}
+input[type=submit] {
+  width: 80px;
+}
+.boton > a{
+  display: block;
+  padding: 10px 0;
+  color: #cdf;
+  text-decoration:none;
+}
+input[type=submit]:hover,
+.boton > a:hover { 
+  background: #1A2F44;
+  color: #BBD43D;
+}
+p {
+  padding:10px 0 20px 0;
+}
+footer > a {
+  display: inline-block;
+  width: 35%;
 }

@@ -3,9 +3,11 @@ body {
 }
 #page-wrap:after {
   content: "Smartphone Layout";
+  font-size: 12px;
+  display: block;
+  text-align: center;
 }
-h1 span,
-section h2 {
+.mobile {
   display: none;
 }
 body {
@@ -14,4 +16,19 @@ body {
 footer,
 input {
   font-size: large;
+}
+footer > a {
+  display: block;
+  width: 100%;
+  padding: 5px 0; 
+}
+.boton {
+  width: 240px;
+}
+p > strong::after {
+  content: '\a';
+  white-space: pre; 
+}
+nav {
+  font-size: 1rem;
 }
