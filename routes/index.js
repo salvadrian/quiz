@@ -5,11 +5,13 @@ var quizController = require('../controllers/quiz_controller');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Quiz | Inicio' });
+  res.render('index', { title: 'Quiz' });
 });
 
-router.get('/quizzes/question', quizController.question);
-router.get('/quizzes/answer', quizController.answer);
+// Definición de rutas de /quizzes
+router.get('/quizzes', quizController.index);
+router.get('/quizzes/:quizId(\\d+)', quizController.show);
+router.get('/quizzes/:quizId(\\d+)/answer', quizController.answer);
 
 /* GET author page. */
 router.get('/author', function(req, res, next) {
