@@ -12,10 +12,17 @@ exports.load = function(req, res, next, quizId) {
   }).catch(function(error){ next(error);});
 };
 
-
 // GET /quizzes
 exports.index = function(req, res) {
-  models.Quiz.findAll().then(function(quizzes) {
+  // Si req.query.search no existe es undefined, por lo 
+  // tanto lo cambiamos por "", también utilizamos el 
+  // comodín para que pueda buscar una subcadena
+  var search = req.query.search || "";
+  search = '%' + search.trim().replace(/ +/,'%') + '%';
+  models.Quiz.findAll({
+    where: ["lower(pregunta) like ?", search],
+    order: 'pregunta ASC'
+  }).then(function(quizzes) {
     res.render('quizzes/index', { quizzes: quizzes, title: "Quiz | Lista de preguntas" });
   }).catch(function(error) { next(error); });
 };
@@ -27,10 +34,12 @@ exports.show = function(req, res) {
 
 // GET /quizzes/:id/answer
 exports.answer = function(req, res) {
-  if (req.query.respuesta.trim().toLowerCase() === req.quiz.respuesta.toLowerCase()){
+  // Si no hay parámetro resp será undefined
+  var resp = (req.query.respuesta) ? req.query.respuesta.trim().toLowerCase() : undefined;
+  if (resp === req.quiz.respuesta.toLowerCase()){
     res.render("quizzes/answer",{ clase: "bien", 
                                   quiz: req.quiz, 
-                                  retorno: "/quizzes",
+                                  retorno: "/quizzes", // Vuelve a la lista de preguntas
                                   respuesta: "Correcto", 
                                   btnTit: "Volver", 
                                   title: "Quiz | Respuesta"
@@ -39,7 +48,7 @@ exports.answer = function(req, res) {
   } else {
     res.render("quizzes/answer",{ clase: "mal", 
                                   quiz: req.quiz,
-                                  retorno: "/quizzes/" + req.quiz.id,
+                                  retorno: "/quizzes/" + req.quiz.id, // Vuelve a la pregunta fallada
                                   respuesta: "Incorrecto",
                                   btnTit: "Inténtelo otra vez",
                                   title: "Quiz | Respuesta"

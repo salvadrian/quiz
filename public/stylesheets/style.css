@@ -28,31 +28,8 @@ footer {
   text-align: center;
   box-shadow: 0 0 5px #333;
 }
-nav {
-  padding: 0px !important;
-  background: #091E33;
-}
-nav > ul {
-  list-style-type: none;
-}
-nav > ul > li {
-  display: inline-block;
-  border-left: 2px dotted #ddf;
-  width: 32.9%;
-}
-nav > ul > li:first-child {
-  border: none;
-}
-nav > ul > li > a {
-  display: block;
-  padding: 10px;
-}
-nav > ul > li > a:hover {
-  background-color: #1A2F44;
-  border-radius: 5px;
-}
 a {
-  color: #37B;
+  
   text-decoration:none;  
 }
 a:hover {
@@ -72,6 +49,36 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.5em;
   font-weight: bold;
 }
+p {
+  padding:10px 0 20px 0;
+}
+/* --- Nav --- */
+nav {
+  padding: 0px !important;
+  background: #091E33;
+}
+nav > ul {
+  list-style-type: none;
+}
+nav > ul > li {
+  display: inline-block;
+  border-left: 2px dotted #ddf;
+  width: 32.9%;
+}
+nav > ul > li:first-child {
+  border: none;
+}
+nav > ul > li > a {
+  color: #7BF;
+  display: block;
+  padding: 10px;
+}
+nav > ul > li > a:hover {
+  background-color: #1A2F44;
+  border-radius: 5px;
+}
+
+/* --- Botones --- */
 input[type=submit],
 .boton {
   cursor: pointer;
@@ -98,10 +105,33 @@ input[type=submit]:hover,
   background: #1A2F44;
   color: #BBD43D;
 }
-p {
-  padding:10px 0 20px 0;
+/* --- Tablas --- */
+table {
+  width: 100%;
 }
+tr td { 
+  text-align: left; 
+}
+tr a {
+  display: block;
+  padding: 5px 10px;
+}
+
+tr:nth-child(even) a {
+  background-color: #99A;
+  color: #222;
+}
+tr:nth-child(odd) a {
+  background-color: #445;
+  color: #EEE;
+}
+tr a:hover {
+  color: #CCE54E;
+  opacity: 0.9;
+}
+/* --- Footer --- */
 footer > a {
+  color: #37B;
   display: inline-block;
   width: 35%;
 }
