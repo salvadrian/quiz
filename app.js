@@ -41,7 +41,7 @@ if (app.get('env') === 'development') {
     res.render('error', {
       message: err.message,
       error: err,
-      title: app.get('env') //"Quiz | Error"
+      title: "Quiz | Error"
     });
   });
 }
@@ -53,7 +53,7 @@ app.use(function(err, req, res, next) {
   res.render('error', {
     message: err.message,
     error: {},
-    title: app.get('env') //"Quiz | Error"
+    title: "Quiz | Error"
   });
 });
 

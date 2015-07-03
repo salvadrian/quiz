@@ -18,7 +18,7 @@ exports.index = function(req, res) {
   // tanto lo cambiamos por "", también utilizamos el 
   // comodín para que pueda buscar una subcadena
   var search = req.query.search || "";
-  search = '%' + search.trim().replace(/ +/,'%') + '%';
+  search = '%' + search.trim().replace(/ +/,'%').toLowerCase() + '%';
   models.Quiz.findAll({
     where: ["lower(pregunta) like ?", search],
     order: 'pregunta ASC'
