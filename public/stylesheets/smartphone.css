@@ -8,7 +8,7 @@ body {
   text-align: center;
 }
 .mobile {
-  display: none;
+  display: none !important;
 }
 body {
   font-size: large;
@@ -31,4 +31,7 @@ p > strong::after {
 }
 nav {
   font-size: 1rem;
+}
+fieldset {
+  width: 260px;
 }

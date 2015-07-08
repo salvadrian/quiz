@@ -80,32 +80,40 @@ nav > ul > li > a:hover {
 
 /* --- Botones --- */
 input[type=submit],
+input[type=button],
 .boton {
   cursor: pointer;
   margin: 10px auto;
   border: 2px solid #aaf;
   background-color: #091E33;
   text-align: center;
-  width: 160px;
+  width: 170px;
   color: #cdf;
   border-radius: 4px;
   box-shadow: 0px 0px 4px 1px #000;
 }
-input[type=submit] {
-  width: 80px;
+input[type=submit],
+input[type=button] {
+  margin: 10px;
+  width: 100px;
 }
-.boton > a{
+.boton > a {
   display: block;
-  padding: 10px 0;
+  padding: 9px 0;
   color: #cdf;
   text-decoration:none;
 }
 input[type=submit]:hover,
+input[type=button]:hover,
 .boton > a:hover { 
   background: #1A2F44;
   color: #BBD43D;
 }
 /* --- Tablas --- */
+#contTable {
+  height: 172px;
+  overflow: auto;
+}
 table {
   width: 100%;
 }
@@ -134,4 +142,22 @@ footer > a {
   color: #37B;
   display: inline-block;
   width: 35%;
+}
+/* --- Fieldset --- */
+fieldset {
+  width: 400px;
+  margin: auto;
+  border-radius: 10px;
+}
+legend {
+  margin-left: 5%;
+  padding: 0 15px 6px 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-family: verdana, sans-serif;
+}
+.campo > label {
+  display: inline-block;
+  text-align: left;
+  width: 120px;
 }

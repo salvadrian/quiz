@@ -15,11 +15,12 @@ router.get('/', function(req, res, next) {
 router.get('/quizzes', quizController.index);
 router.get('/quizzes/:quizId(\\d+)', quizController.show);
 router.get('/quizzes/:quizId(\\d+)/answer', quizController.answer);
+router.get('/quizzes/new', quizController.new);
+router.post('/quizzes/create', quizController.create);
 
 /* GET author page. */
 router.get('/author', function(req, res, next) {
   res.render('author', { title: 'Quiz | Créditos'});
 });
-
 
 module.exports = router;
