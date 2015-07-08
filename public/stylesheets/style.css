@@ -52,6 +52,10 @@ h1, h2, h3, h4, h5, h6 {
 p {
   padding:10px 0 20px 0;
 }
+#ErrorMsgs {
+  color: #f61;
+  font-size: smaller;
+}
 /* --- Nav --- */
 nav {
   padding: 0px !important;

@@ -8,7 +8,7 @@ router.param('quizId', quizController.load);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Quiz' });
+  res.render('index', { title: 'Quiz', errors:[] });
 });
 
 // Definición de rutas de /quizzes
@@ -20,7 +20,7 @@ router.post('/quizzes/create', quizController.create);
 
 /* GET author page. */
 router.get('/author', function(req, res, next) {
-  res.render('author', { title: 'Quiz | Créditos'});
+  res.render('author', { title: 'Quiz | Créditos', errors:[] });
 });
 
 module.exports = router;
