@@ -8,11 +8,14 @@
   <% var i; for (i = 0; i < quizzes.length; i++) { %>
     <tr>
       <td><a href="quizzes/<%= quizzes[i].id %>"><%= quizzes[i].pregunta %></a></td>
-      <td><a href="quizzes/<%= quizzes[i].id %>/edit" class="btn"><input type="button" value="Editar" /></a></td>
+      <td class="btn"><button type="button" onclick="location.href='quizzes/<%= quizzes[i].id %>/edit';" class="btn-sm">Editar</button></td>
+      <td class="btn">
+        <form method="post" action="quizzes/<%= quizzes[i].id %>?_method=delete">
+        <button type="submit" class="btn-sm" onClick="return confirm('Seguro que quiere borrar: <%= quizzes[i].pregunta %>');">Borrar</button>
+        </form>
+      </td>
     </tr>
   <% } %>
   </table>
 </div>
-<div class="boton">
-  <a href="/quizzes/new">Crear pregunta</a>
-</div>
+<button type="button" onclick="location.href='/quizzes/new';" class="btn-lg">Crear pregunta</button>
