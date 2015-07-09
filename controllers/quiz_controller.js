@@ -1,4 +1,5 @@
 var models = require('../models/models.js');
+var temario = require('../models/temario.js');
 
 // Autoload - factoriza el código si ruta incluye :quizId
 exports.load = function(req, res, next, quizId) {
@@ -62,10 +63,10 @@ exports.answer = function(req, res) {
 // GET /quizzes/new
 exports.new = function(req, res) {
   var quiz = models.Quiz.build( // crea objeto quiz
-    {pregunta: "", respuesta: ""}
+    {pregunta: "", respuesta: "", tema: ""}
   );
 
-  res.render('quizzes/new', {quiz: quiz, title: "Quiz | Nueva pregunta", errors:[]});
+  res.render('quizzes/new', {quiz: quiz, title: "Quiz | Nueva pregunta", temas: temario.temas, errors:[]});
 };
 
 // POST /quizzes/create
@@ -74,10 +75,10 @@ exports.create = function(req, res) {
 
   quiz.validate().then(function(err) {
     if (err) {
-      res.render('quizzes/new', {quiz: quiz, title: "Quiz | Nueva pregunta", errors: err.errors});
+      res.render('quizzes/new', {quiz: quiz, title: "Quiz | Nueva pregunta", temas: temario.temas, errors: err.errors});
     } else {
       quiz // guarda en DB los campos pregunta y respuesta de quiz
-      .save({ fields: ["pregunta", "respuesta"] })
+      .save({ fields: ["pregunta", "respuesta", "tema"] })
       .then(function() { res.redirect('/quizzes'); });
     } // Redirección HTTP a lista de preguntas
   });
@@ -87,20 +88,21 @@ exports.create = function(req, res) {
 exports.edit = function(req, res) {
   var quiz = req.quiz; // autoload de instancia de quiz
 
-  res.render('quizzes/edit', { quiz: quiz, title: "Quiz | Editar pregunta", errors: [] });
+  res.render('quizzes/edit', { quiz: quiz, title: "Quiz | Editar pregunta", temas: temario.temas, errors: [] });
 };
 
 // PUT /quizzes/:id
 exports.update = function(req, res) {
   req.quiz.pregunta = req.body.quiz.pregunta;
   req.quiz.respuesta = req.body.quiz.respuesta;
+  req.quiz.tema = req.body.quiz.tema;
 
   req.quiz.validate().then(function(err) {
     if (err) {
-      res.render('quizzes/edit', { quiz: req.quiz, title: "Quiz | Editar pregunta", errors: err.errors });
+      res.render('quizzes/edit', { quiz: req.quiz, title: "Quiz | Editar pregunta", temas: temario.temas, errors: err.errors });
     } else {
       req.quiz
-      .save({ fields: ["pregunta", "respuesta"] })
+      .save({ fields: ["pregunta", "respuesta", "tema"] })
       .then(function() { res.redirect('/quizzes'); });
     }
   });

@@ -7,7 +7,8 @@
   <table>
   <% var i; for (i = 0; i < quizzes.length; i++) { %>
     <tr>
-      <td><a href="quizzes/<%= quizzes[i].id %>"><%= quizzes[i].pregunta %></a></td>
+      <td class="datos"><a href="quizzes/<%= quizzes[i].id %>"><%= quizzes[i].pregunta %></a></td>
+      <td class="datos"><a><%= quizzes[i].tema %></a></td>
       <td class="btn"><button type="button" onclick="location.href='quizzes/<%= quizzes[i].id %>/edit';" class="btn-sm">Editar</button></td>
       <td class="btn">
         <form method="post" action="quizzes/<%= quizzes[i].id %>?_method=delete">

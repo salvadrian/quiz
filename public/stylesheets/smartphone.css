@@ -29,8 +29,12 @@ p > strong::after {
 nav {
   font-size: 1rem;
 }
+section > div {
+  padding: 5px;
+  font-size: 1rem;
+}
 fieldset {
-  width: 260px;
+  width: 240px;
 }
 td.btn {
   width: 40px;

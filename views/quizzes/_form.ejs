@@ -1,10 +1,23 @@
 <p class="campo">
   <label for="preg" class="mobile">Pregunta:</label>
-  <input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>" placeholder="Pregunta" autofocus/>
+  <input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>" placeholder="Pregunta" autofocus required/>
 </p>
 <p class="campo">
   <label for="resp" class="mobile">Respuesta:</label>
-  <input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>" placeholder="Respuesta"/>
+  <input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>" placeholder="Respuesta" required/>
+</p>
+<p class="campo">
+  <label for="lista" class="mobile">Tema:</label>
+  <select id="lista" name="quiz[tema]" required>
+    <option value=""></option>
+  <% for (var i in temas) { %>
+    <% if (quiz.tema === temas[i]) { %>
+      <option value="<%= temas[i] %>" selected><%= temas[i] %></option>
+    <% } else { %>
+      <option value="<%= temas[i] %>"><%= temas[i] %></option>
+    <% } %>
+  <% } %>
+  </select>
 </p>
 <button type="button" onclick="location.href='/quizzes';" class="btn-sm">Cancelar</button>
 <button type="submit" class="btn-sm">Guardar</button>

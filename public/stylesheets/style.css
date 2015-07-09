@@ -29,7 +29,6 @@ footer {
   box-shadow: 0 0 5px #333;
 }
 a {
-  
   text-decoration:none;  
 }
 a:hover {
@@ -116,6 +115,10 @@ button:hover {
 }
 table {
   width: 100%;
+  border-collapse: collapse;
+}
+tr {
+  border: 2px solid #EEEEEE;
 }
 tr > td { 
   text-align: left;
@@ -123,21 +126,21 @@ tr > td {
 td.btn {
   width: 100px;
 }
-tr > td:first-child > a {
+tr > td.datos > a {
   display: block;
   padding: 7px 10px;
+  color: inherit;
 }
-tr:nth-child(even) > td:first-child > a {
+tr:nth-child(even) > td.datos {
   background-color: #99A;
   color: #222;
 }
-tr:nth-child(odd) > td:first-child > a {
+tr:nth-child(odd) > td.datos {
   background-color: #445;
   color: #EEE;
 }
 tr > td:first-child > a:hover {
   color: #CCE54E;
-  opacity: 0.9;
 }
 /* --- Footer --- */
 footer > a {
@@ -163,4 +166,24 @@ legend {
   display: inline-block;
   text-align: left;
   width: 120px;
+}
+.campo > input {
+  width: 200px;
+  padding: 3px;
+}
+.campo > select {
+  width: 210px;
+  padding: 2px;
+}
+.campo > input:valid,
+.campo > select:valid {
+  background-color: #efe;
+  border: 2px solid #080;
+  box-shadow: 2px 2px 5px rgba(100,200,100,0.5);
+}
+.campo > input:invalid,
+.campo > select:invalid {
+  background-color: #fee;
+  border: 2px solid #800;
+  box-shadow: 2px 2px 7px rgba(200,100,100,0.5);
 }
