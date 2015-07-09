@@ -62,7 +62,7 @@ exports.answer = function(req, res) {
 // GET /quizzes/new
 exports.new = function(req, res) {
   var quiz = models.Quiz.build( // crea objeto quiz
-    {pregunta: "Pregunta", respuesta: "Respuesta"}
+    {pregunta: "", respuesta: ""}
   );
 
   res.render('quizzes/new', {quiz: quiz, title: "Quiz | Nueva pregunta", errors:[]});
@@ -76,10 +76,32 @@ exports.create = function(req, res) {
     if (err) {
       res.render('quizzes/new', {quiz: quiz, title: "Quiz | Nueva pregunta", errors: err.errors});
     } else {
-      // guarda en DB los campos pregunta y respuesta de quiz
-      quiz.save({fields: ["pregunta", "respuesta"]}).then(function() {
-        res.redirect('/quizzes'); // Redirección HTTP a lista de preguntas
-      });
+      quiz // guarda en DB los campos pregunta y respuesta de quiz
+      .save({ fields: ["pregunta", "respuesta"] })
+      .then(function() { res.redirect('/quizzes'); });
+    } // Redirección HTTP a lista de preguntas
+  });
+};
+
+// GET /quizzes/:id/edit
+exports.edit = function(req, res) {
+  var quiz = req.quiz; // autoload de instancia de quiz
+
+  res.render('quizzes/edit', { quiz: quiz, title: "Quiz | Editar pregunta", errors: [] });
+};
+
+// PUT /quizzes/:id
+exports.update = function(req, res) {
+  req.quiz.pregunta = req.body.quiz.pregunta;
+  req.quiz.respuesta = req.body.quiz.respuesta;
+
+  req.quiz.validate().then(function(err) {
+    if (err) {
+      res.render('quizzes/edit', { quiz: req.quiz, title: "Quiz | Editar pregunta", errors: err.errors });
+    } else {
+      req.quiz
+      .save({ fields: ["pregunta", "respuesta"] })
+      .then(function() { res.redirect('/quizzes'); });
     }
   });
 };

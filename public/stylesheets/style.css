@@ -122,7 +122,8 @@ table {
   width: 100%;
 }
 tr td { 
-  text-align: left; 
+  text-align: left;
+  padding-left: 10px; 
 }
 tr a {
   display: block;
@@ -140,6 +141,16 @@ tr:nth-child(odd) a {
 tr a:hover {
   color: #CCE54E;
   opacity: 0.9;
+}
+
+a.btn {
+  padding: 0;
+  display: initial;
+  background-color: initial;
+}
+a.btn > input {
+  margin: 0;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 /* --- Footer --- */
 footer > a {

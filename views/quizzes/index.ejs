@@ -1,12 +1,15 @@
 <form method="get" action="/quizzes">
   <label for="search" class="mobile">Buscar por:</label>
-  <input type="search" id="search" name="search" placeholder="Buscar aquí" autofocus autocomplete="on"/>
-  <input type="submit" value="Enviar" />
+  <input type="search" id="search" name="search" placeholder="Buscar aquí" autofocus autocomplete="on" onchange=/>
+  <input class="mobile" type="submit" value="Enviar" />
 </form>
 <div id="contTable">
   <table>
   <% var i; for (i = 0; i < quizzes.length; i++) { %>
-    <tr><td><a href="quizzes/<%= quizzes[i].id %>"><%= quizzes[i].pregunta %></a></td></tr>
+    <tr>
+      <td><a href="quizzes/<%= quizzes[i].id %>"><%= quizzes[i].pregunta %></a></td>
+      <td><a href="quizzes/<%= quizzes[i].id %>/edit" class="btn"><input type="button" value="Editar" /></a></td>
+    </tr>
   <% } %>
   </table>
 </div>
