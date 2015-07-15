@@ -187,3 +187,25 @@ legend {
   border: 2px solid #800;
   box-shadow: 2px 2px 7px rgba(200,100,100,0.5);
 }
+/* --- Div con comentarios --- */
+#comentarios {
+  width: 90%;
+  height: 90px;
+  margin: auto;
+  overflow: auto;
+  text-align: left
+}
+#comentarios > ol {
+  list-style-position: inside;
+}
+#comentarios > ol > li {
+  padding: 5px 20px;
+}
+#comentarios > ol > li:nth-child(even) {
+  background-color: #99A;
+  color: #222;
+}
+#comentarios > ol > li:nth-child(odd) {
+  background-color: #445;
+  color: #EEE;
+}

@@ -3,3 +3,12 @@
   <input type="text" name="respuesta" placeholder="Responda aquí" />
   <button type="submit" class="btn-sm">Enviar</button>
 </form>
+<button type="button" onclick="location.href='/quizzes/<%= quiz.id %>/comments/new';" class="btn-lg">Nuevo comentario</button>
+<h3><strong>Comentarios</strong></h3>
+<div id="comentarios">
+<ol>
+<% for(var index in quiz.Comments) { %>
+	<li><%= quiz.Comments[index].texto %></li>
+<% } %>
+</ol>
+</div>
