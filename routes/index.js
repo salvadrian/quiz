@@ -22,11 +22,11 @@ router.delete('/login', sessionController.destroy); // Destruir sesión
 router.get('/quizzes', quizController.index);
 router.get('/quizzes/:quizId(\\d+)', quizController.show);
 router.get('/quizzes/:quizId(\\d+)/answer', quizController.answer);
-router.get('/quizzes/new', quizController.new);
-router.post('/quizzes/create', quizController.create);
-router.get('/quizzes/:quizId(\\d+)/edit', quizController.edit);
-router.put('/quizzes/:quizId(\\d+)', quizController.update);
-router.delete('/quizzes/:quizId(\\d+)', quizController.destroy);
+router.get('/quizzes/new', sessionController.loginRequired, quizController.new); // Requieren autenticación
+router.post('/quizzes/create', sessionController.loginRequired, quizController.create); // Requieren autenticación
+router.get('/quizzes/:quizId(\\d+)/edit', sessionController.loginRequired, quizController.edit); // Requieren autenticación
+router.put('/quizzes/:quizId(\\d+)', sessionController.loginRequired, quizController.update); // Requieren autenticación
+router.delete('/quizzes/:quizId(\\d+)', sessionController.loginRequired, quizController.destroy); // Requieren autenticación
 
 // Definición de rutas de comments
 router.get('/quizzes/:quizId(\\d+)/comments/new', commentController.new);
