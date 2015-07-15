@@ -198,11 +198,13 @@ legend {
   overflow: auto;
   text-align: left
 }
-#comentarios > ol {
-  list-style-position: inside;
-}
 #comentarios > ol > li {
-  padding: 5px 20px;
+  padding: 5px 10px 5px 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 #comentarios > ol > li:nth-child(even) {
   background-color: #99A;
@@ -211,4 +213,7 @@ legend {
 #comentarios > ol > li:nth-child(odd) {
   background-color: #445;
   color: #EEE;
+}
+.cmt-izq {
+  flex-grow: 2;
 }

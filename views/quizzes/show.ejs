@@ -8,7 +8,13 @@
 <div id="comentarios">
 <ol>
 <% for(var index in quiz.Comments) { %>
-	<li><%= quiz.Comments[index].texto %></li>
+  <% if (quiz.Comments[index].publicado || session.user) { %>
+  <li><span class="cmt-izq"><%= quiz.Comments[index].texto %></span>
+  <% if(session.user && !quiz.Comments[index].publicado) { %>
+    <form method="post" action="/quizzes/<%= quiz.id %>/comments/<%= quiz.Comments[index].id %>/publish?_method=put"><button type="submit" class="btn-sm">Publicar</button></form>
+  <% } %>
+  </li>
+  <% } %>
 <% } %>
 </ol>
 </div>

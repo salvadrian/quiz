@@ -10,8 +10,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Quiz', errors:[] });
 });
 
-// Autoload :quizId
-router.param('quizId', quizController.load);
+// Autoloads de comandos
+router.param('quizId', quizController.load); // Autoload :quizId
+router.param('commentId', commentController.load); // Autoload :commentId
 
 // Definición de rutas de session
 router.get('/login', sessionController.new); // Formulario login
@@ -31,6 +32,7 @@ router.delete('/quizzes/:quizId(\\d+)', sessionController.loginRequired, quizCon
 // Definición de rutas de comments
 router.get('/quizzes/:quizId(\\d+)/comments/new', commentController.new);
 router.post('/quizzes/:quizId(\\d+)/comments', commentController.create);
+router.put('/quizzes/:quizId(\\d+)/comments/:commentId(\\d+)/publish', sessionController.loginRequired, commentController.publish); // Requieren autenticación
 
 /* GET author page. */
 router.get('/author', function(req, res, next) {

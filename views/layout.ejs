@@ -21,7 +21,7 @@
               <button type="button" class="btn-sm" onclick="location.href='/login'">Login</button>
             </span>
         <% } else { %>
-            <span class="right"> <%= session.user.username %> 
+            <span class="right"><strong><%= session.user.username %></strong> 
               <form method="post" action="/login?_method=delete">
                 <button type="submit" class="btn-sm">Logout</button>
               </form>

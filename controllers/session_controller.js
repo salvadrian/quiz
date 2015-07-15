@@ -17,7 +17,6 @@ exports.new = function(req, res) {
 
 // POST /login  -- Crear la sesión
 exports.create = function(req, res) {
-  console.log("ESTOY DENTRO DE CREATE");
   var login = req.body.login;
   var password = req.body.password;
 

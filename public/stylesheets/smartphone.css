@@ -42,3 +42,9 @@ td.btn {
 td.btn .btn-sm {
  width: 30px;
 }
+#comentarios {
+  width: 100%;
+}
+#comentarios > ol > li {
+  padding: 5px;
+}
