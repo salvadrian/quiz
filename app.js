@@ -39,6 +39,21 @@ app.use(function(req, res, next) {
   next();
 });
 
+// MW de autologout
+app.use(function(req, res, next) {
+  if (req.session.user) {
+    if (req.session.limitTime && (Date.now() >= req.session.limitTime)) {
+      delete req.session.user;
+      delete req.session.limitTime;
+      res.redirect("/login");
+      return;
+    } else {
+      req.session.limitTime = Date.now() + 15000;
+    }
+  }
+  next();
+});
+
 app.use('/', routes);
 
 // catch 404 and forward to error handler
