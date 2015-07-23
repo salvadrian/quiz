@@ -69,7 +69,7 @@ nav > ul {
 nav > ul > li {
   display: inline-block;
   border-left: 2px dotted #ddf;
-  width: 32.9%;
+  width: 24.5%;
 }
 nav > ul > li:first-child {
   border: none;
@@ -77,7 +77,7 @@ nav > ul > li:first-child {
 nav > ul > li > a {
   color: #7BF;
   display: block;
-  padding: 10px;
+  padding: 10px 0;
 }
 nav > ul > li > a:hover {
   background-color: #1A2F44;
@@ -116,6 +116,10 @@ button:hover {
   overflow: auto;
   margin-top: 10px;
 }
+#tStatistics {
+  width: 80%;
+  margin: auto;
+}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -134,16 +138,21 @@ tr > td.datos > a {
   padding: 7px 10px;
   color: inherit;
 }
-tr:nth-child(even) > td.datos {
+tr:nth-child(even) > td.datos,
+#tStatistics tr:nth-child(even){
   background-color: #99A;
   color: #222;
 }
-tr:nth-child(odd) > td.datos {
+tr:nth-child(odd) > td.datos,
+#tStatistics tr:nth-child(odd) {
   background-color: #445;
   color: #EEE;
 }
 tr > td:first-child > a:hover {
   color: #CCE54E;
+}
+#tStatistics td {
+  padding: 7px 10px;
 }
 /* --- Footer --- */
 footer > a {

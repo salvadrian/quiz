@@ -10,10 +10,10 @@
       <td class="datos"><a href="quizzes/<%= quizzes[i].id %>"><%= quizzes[i].pregunta %></a></td>
       <td class="datos"><a><%= quizzes[i].tema %></a></td>
     <% if (session.user) { %>
-      <td class="btn"><button type="button" onclick="location.href='quizzes/<%= quizzes[i].id %>/edit';" class="btn-sm">Editar</button></td>
+      <td class="btn"><button type="button" onclick="location.href='quizzes/<%= quizzes[i].id %>/edit';" class="btn-sm"><i class="fa fa-edit fa-1x"></i><span class="mobile"> Editar</span></button></td>
       <td class="btn">
         <form method="post" action="quizzes/<%= quizzes[i].id %>?_method=delete">
-        <button type="submit" class="btn-sm" onClick="return confirm('Seguro que quiere borrar: <%= quizzes[i].pregunta %>');">Borrar</button>
+        <button type="submit" class="btn-sm" onClick="return confirm('Seguro que quiere borrar: <%= quizzes[i].pregunta %>');"><i class="fa fa-trash-o fa-1x"></i><span class="mobile"> Borrar</span></button>
         </form>
       </td>
     <% } %>

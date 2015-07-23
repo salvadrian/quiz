@@ -48,7 +48,7 @@ app.use(function(req, res, next) {
       res.redirect("/login");
       return;
     } else {
-      req.session.limitTime = Date.now() + 15000;
+      req.session.limitTime = Date.now() + 120000;
     }
   }
   next();

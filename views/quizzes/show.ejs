@@ -11,7 +11,7 @@
   <% if (quiz.Comments[index].publicado || session.user) { %>
   <li><span class="cmt-izq"><%= quiz.Comments[index].texto %></span>
   <% if(session.user && !quiz.Comments[index].publicado) { %>
-    <form method="post" action="/quizzes/<%= quiz.id %>/comments/<%= quiz.Comments[index].id %>/publish?_method=put"><button type="submit" class="btn-sm">Publicar</button></form>
+    <form method="post" action="/quizzes/<%= quiz.id %>/comments/<%= quiz.Comments[index].id %>/publish?_method=put"><button type="submit" id="btn-publish" class="btn-sm"><i class="fa fa-cloud-upload fa-1x"></i><span class="mobile"> Publicar</span></button></form>
   <% } %>
   </li>
   <% } %>

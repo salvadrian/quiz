@@ -1,0 +1,23 @@
+<h2>Estadísticas</h2>
+<table id="tStatistics">
+	<tr>
+		<td>Número de preguntas</td>
+		<td><%= statistics.numQuizzes %></td>
+	</tr>
+	<tr>		
+		<td>Número de comentarios</td>
+		<td><%= statistics.numComments %></td>
+	</tr>
+	<tr>
+		<td>Media de comentarios por pregunta</td>
+		<td><%= statistics.avgComments %></td>
+	</tr>
+	<tr>
+		<td>Preguntas sin comentarios</td>
+		<td><%= statistics.quizUncommented %></td>
+	</tr>
+	<tr>
+		<td>Preguntas con comentarios</td>
+		<td><%= statistics.quizCommented %></td>
+	</tr>
+</table>

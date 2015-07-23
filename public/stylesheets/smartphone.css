@@ -26,9 +26,6 @@ p > strong::after {
   content: '\a';
   white-space: pre; 
 }
-nav {
-  font-size: 1rem;
-}
 section > div {
   padding: 5px;
   font-size: 1rem;
@@ -47,4 +44,7 @@ td.btn .btn-sm {
 }
 #comentarios > ol > li {
   padding: 5px;
+}
+#btn-publish {
+  width: 30px; 
 }
